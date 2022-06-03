@@ -13,6 +13,8 @@ import {Autocomplete} from "@mui/lab";
 import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router";
 import {fetchgetCurrentChallenge, fetchSubmitCode} from "./redux/actions/actions";
+import {ROOM_ID} from "./WebSocket/webSocket";
+import swal from "sweetalert";
 
 // {challenge_id , user_id , code , language , strategy="OPTIMIZED" , secondsLeft}
 
@@ -51,7 +53,15 @@ function Challenge() {
     }
 
     const submitSubmission=()=>{
-        dispatch(fetchSubmitCode({challenge_id : chellengeId , user_id : 1234 , code : code , language : currentChallenge?.data?.challenge?.language, secondsLeft : 1500 , strategy : "OPTIMIZED"}))
+        dispatch(fetchSubmitCode({challenge_id : chellengeId , room_id : ROOM_ID , code : code , language : currentChallenge?.data?.challenge?.language}))
+            .then(()=>{
+                swal("SUCCESS !", "You clicked the button!", "success");
+
+            })
+            .catch(errMess=>{
+                swal("ERROR!", errMess, "error");
+
+            })
     }
 
     const columns = [
@@ -69,7 +79,7 @@ function Challenge() {
             field: "user",
             render: (rowData) => (
                 <div className="d-flex align-items-center">
-                    {rowData.user}
+                    {rowData.user_id}
                 </div>
             ),
         },
@@ -85,18 +95,7 @@ function Challenge() {
 
     ];
 
-    const data = [
-        {
-            rank : 1,
-            user : "Metidji Sid Ahmed",
-            score : 13234
-        },
-        {
-            rank : 1,
-            user : "Dhiaa",
-            score : 12451
-        }
-    ];
+
 
     if(currentChallenge.loading){
         return <h1>LOADING ....</h1>
@@ -107,6 +106,7 @@ function Challenge() {
         <div className="d-flex">
             <div className="col-6">
                 <div className="d-flex flex-column">
+                    <div>TIMER : {currentChallenge?.timer?.hours}:{currentChallenge?.timer?.minutes}:{currentChallenge?.timer?.seconds}</div>
                     <div>LEVEL : {currentChallenge?.data?.challenge?.level} </div>
                     <div className="d-flex flex-column mt-3 mb-3">
                         <h1>Description</h1>
@@ -155,7 +155,7 @@ function Challenge() {
                         localization={tableLang}
                         title="LeaderBoard"
                         columns={columns}
-                        data={data}
+                        data={currentChallenge.leaderboard}
                         options={{
                             search: false,
                             actionsColumnIndex: -1,

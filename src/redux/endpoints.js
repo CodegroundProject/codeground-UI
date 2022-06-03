@@ -1,7 +1,7 @@
 const  baseUrlTest = "http://localhost:3000";
 
 const BASE_URL_CONTENT_MANAGEMENT="http://localhost:3000"
-const BASE_URL_GRADING_SERVICE="http://localhost:3001"
+const BASE_URL_GRADING_SERVICE="http://localhost:4001"
 module.exports={
     ENDPOINT_GET_POSTS : `${baseUrlTest}/posts`,
     ENDPOINT_POST_POST : `${baseUrlTest}/posts`,
@@ -33,6 +33,6 @@ module.exports={
     // ALOOOG
 
     ENDPOINT_GET_CHALLENGE : `${BASE_URL_CONTENT_MANAGEMENT}/api/challenges/`,
-    ENDPOINT_SUBMIT : `${BASE_URL_GRADING_SERVICE}/api/submit`
+    ENDPOINT_SUBMIT : `${BASE_URL_GRADING_SERVICE}/rooms/submit`
 }
 
