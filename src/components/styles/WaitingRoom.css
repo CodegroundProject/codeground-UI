@@ -1,0 +1,105 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+ul {
+	margin: 0;
+}
+.nav-bar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.5rem 2rem;
+	background-color: #fff;
+	box-shadow: 0 1px 1px 1px rgb(0 0 0 / 10%);
+}
+.nav-bar .logo {
+	display: flex;
+	align-items: center;
+}
+.nav-bar .logo img {
+	width: 35px;
+	margin-right: 1rem;
+}
+.nav-bar .logo h2 {
+	display: inline-block;
+	margin: 0;
+}
+.nav-bar .nav-links li {
+	list-style: none;
+	margin-left: 1rem;
+	text-transform: uppercase;
+	display: inline-block;
+}
+
+.nav-bar .nav-links li a {
+	text-decoration: none;
+	color: #000;
+	padding: 8px 14px;
+	border-radius: 6px;
+	transition: 0.3s background-color;
+}
+.nav-bar .nav-links li:last-child a {
+	background-color: #e91e63;
+	color: #fff;
+}
+.nav-bar .nav-links li a:hover {
+	background-color: rgb(0 0 0 / 10%);
+}
+.waiting {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+.waiting h2 {
+	text-align: center;
+}
+.waiting-box {
+	display: flex;
+	justify-content: space-between;
+	gap: 1.5rem;
+}
+
+.waiting .coding {
+	text-align: center;
+}
+.waiting .coding img {
+	width: 300px;
+}
+.loading {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+.loading .icon {
+	font-size: 2rem;
+	animation: spin 2s infinite alternate;
+}
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.room-details {
+	border: 1px solid rgb(0 0 0 / 10%);
+	border-radius: 6px;
+	flex: 1;
+	padding: 1rem;
+}
+.participants {
+	flex: 1;
+	border-radius: 6px;
+	background-color: rgb(0 0 0 / 10%);
+	height: 300px;
+	overflow: scroll;
+	overflow-x: hidden;
+}
+.waiting-box {
+	margin-bottom: 1rem;
+}
+.start-room {
+	text-align: center;
+}

@@ -6,21 +6,24 @@ import $ from 'jquery';
 import Popper from 'popper.js';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {Provider} from "react-redux";
+import { Provider } from "react-redux";
 import store from "./redux/store";
-import {createBrowserHistory} from "history";
-import {Router} from "react-router";
+import { createBrowserHistory } from "history";
+import { Router } from "react-router";
+import "./normalize.css";
+
+
 export const history = createBrowserHistory();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-      <Provider store={store}>
-          <Router history={history}>
-              <App />
-          </Router>
-      </Provider>
-  </React.StrictMode>
+    <React.StrictMode>
+        <Provider store={store}>
+            <Router history={history}>
+                <App />
+            </Router>
+        </Provider>
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
