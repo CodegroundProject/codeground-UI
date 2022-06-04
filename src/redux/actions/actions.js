@@ -115,6 +115,7 @@ export const fetchUpdateTimer = (data) => {
 
 
 export const fetchUpdateLeaderboard = (data) => {
+  
   return {
     type: Actiontypes.SOCKET_UPDATE_LEADERBOARD,
     payload : data

@@ -7,11 +7,10 @@ import {
 } from "../redux/actions/actions";
 
 
-// OBSERVE CAR DATA
 export const observeLeaderboardScoreChange=(socket ,roomId ,  dispatch)=>{
     socket.on("leaderboard" , (data)=>{
         // const payload= JSON.parse(allCarsArr)
-        console.log("LEADERBOARD EVENT GOT : "+data);
+        console.log("LEADERBOARD EVENT GOT : "+data[0].score);
         dispatch(fetchUpdateLeaderboard(data))
         // dispatch(observeCarData(car));
     })

@@ -68,7 +68,7 @@ function Challenge() {
         {
             title: "Rank",
             field: "rank",
-            render: (rowData) => (
+            render: (rowData) => ( 
                 <div className="d-flex align-items-center">
                     {rowData.rank}
                 </div>
@@ -79,7 +79,7 @@ function Challenge() {
             field: "user",
             render: (rowData) => (
                 <div className="d-flex align-items-center">
-                    {rowData.user_id}
+                    {rowData.id}
                 </div>
             ),
         },

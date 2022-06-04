@@ -21,8 +21,9 @@ const WebSocketContext = createContext(null)
 
 export { WebSocketContext }
 
+
+let socket;
 export default ({ children }) => {
-    let socket;
     let ws;
     // const currentPath=location.pathname
     const dispatch = useDispatch();
@@ -34,10 +35,10 @@ export default ({ children }) => {
                 user_id: "userid1",
                 room_id: ROOM_ID
             }
-            socket = io.connect(WS_BASE);
+            socket = io(WS_BASE);
+            // socket = io.connect(WS_BASE);
+            console.log("CURRENT SOCKET ==== ", socket);
             socket.emit("join", data);
-
-
 
             observeLeaderboardScoreChange(socket , ROOM_ID , dispatch)
             observeTimerChange(socket , ROOM_ID,dispatch)

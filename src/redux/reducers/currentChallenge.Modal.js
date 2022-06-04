@@ -19,14 +19,9 @@ const initialState = {
     leaderboard: [
         {
             rank : 1,
-            user_id : "Metidji Sid Ahmed",
+            id : "Metidji Sid Ahmed",
             score : 13234
         },
-        {
-            rank : 1,
-            user_id : "Dhiaa",
-            score : 12451
-        }
     ]
 };
 
@@ -58,6 +53,8 @@ export default function currentChallengeModal(state = initialState, action) {
                 timer : action.payload
             }
         case SOCKET_UPDATE_LEADERBOARD:
+            console.log("LEADERBOARD REDUCER IS ", action.payload);
+            console.log(JSON.stringify(action.payload));
             return {
                 ...state,
                 leaderboard: action.payload

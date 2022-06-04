@@ -51,10 +51,10 @@ function App() {
         },
         {
             title: "User",
-            field: "user",
+            field: "id",
             render: (rowData) => (
                 <div className="d-flex align-items-center">
-                    {rowData.user}
+                    {rowData.id}
                 </div>
             ),
         },
